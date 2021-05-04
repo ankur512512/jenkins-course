@@ -1,5 +1,5 @@
 node {
-    def server = Artifactory.server('jenkinsbyankur.jfrog.io')
+    def server = Artifactory.server('ankur512512.jfrog.io')
     def rtGradle = Artifactory.newGradleBuild()
     def buildInfo = Artifactory.newBuildInfo()
     stage 'Build'
@@ -7,8 +7,8 @@ node {
 
     stage 'Artifactory configuration'
         rtGradle.tool = 'gradle' // Tool name from Jenkins configuration
-        rtGradle.deployer repo:'gradle-dev-local',  server: server
-        rtGradle.resolver repo:'gradle-dev', server: server
+        rtGradle.deployer repo:'ankur-gradle-dev-local',  server: server
+        rtGradle.resolver repo:'ankur-gradle-dev', server: server
 
         stage('Config Build Info') {
             buildInfo.env.capture = true
